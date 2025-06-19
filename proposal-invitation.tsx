@@ -136,16 +136,7 @@ export default function ProposalInvitation() {
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-pink-900 via-black to-purple-900 opacity-80" />
 
       {/* iPhone 13 Frame */}
-      <div
-        className="relative z-10 flex flex-col"
-        style={{
-          width: 390,
-          height: 844,
-          boxShadow: "0 0 40px 8px rgba(0,0,0,0.5)",
-          overflow: "hidden",
-          background: "#000",
-        }}
-      >
+      <div className="relative z-10 flex flex-col">
         {/* Animated Stars */}
         <div className="absolute inset-0">
           {[...Array(50)].map((_, i) => (
@@ -206,8 +197,8 @@ export default function ProposalInvitation() {
           )}
 
           {currentScreen === "invitation" && (
-            <div className="space-y-8 animate-slide-up">
-              <div className="space-y-6">
+            <div className="space-y-4 animate-slide-up">
+              <div className="space-y-2">
                 <Heart
                   className="mx-auto text-pink-400 animate-pulse"
                   size={60}
