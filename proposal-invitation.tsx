@@ -2,12 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Heart,
-  ChevronLeft,
-  ChevronRight,
-  ArrowLeft,
-} from "lucide-react";
+import { Heart, ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
 
 export default function ProposalInvitation() {
   const [currentScreen, setCurrentScreen] = useState<
@@ -317,27 +312,30 @@ export default function ProposalInvitation() {
                       onTouchStart={handleTouchStart}
                       onTouchEnd={handleTouchEnd}
                     >
-                      <img
-                        loading="eager"
-                        src={
-                          galleryImages[currentImageIndex].src ||
-                          "/placeholder.svg"
-                        }
-                        alt={galleryImages[currentImageIndex].caption}
-                        className={`w-full h-full object-cover transition-all duration-500
-                        ${
-                          animating && animationDirection === "left"
-                            ? "animate-slide-out-left"
-                            : ""
-                        }
-                        ${
-                          animating && animationDirection === "right"
-                            ? "animate-slide-out-right"
-                            : ""
-                        }
-                      `}
-                        onAnimationEnd={handleAnimationEnd}
-                      />
+                      {galleryImages.map((image, index) => (
+                        <img
+                          loading="eager"
+                          key={image.src}
+                          src={image.src || "/placeholder.svg"}
+                          alt={image.caption}
+                          className={`${
+                            index === currentImageIndex ? "block" : "hidden"
+                          } w-full h-full object-cover transition-all duration-500
+                         ${
+                           animating && animationDirection === "left"
+                             ? "animate-slide-out-left"
+                             : ""
+                         }
+                         ${
+                           animating && animationDirection === "right"
+                             ? "animate-slide-out-right"
+                             : ""
+                         }
+                       `}
+                          onAnimationEnd={handleAnimationEnd}
+                        />
+                      ))}
+
                       {pendingIndex !== null && (
                         <img
                           src={
