@@ -318,6 +318,7 @@ export default function ProposalInvitation() {
                       onTouchEnd={handleTouchEnd}
                     >
                       <img
+                        loading="eager"
                         src={
                           galleryImages[currentImageIndex].src ||
                           "/placeholder.svg"
