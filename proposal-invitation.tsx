@@ -137,7 +137,7 @@ export default function ProposalInvitation() {
 
       {/* iPhone 13 Frame */}
       <div
-        className="relative z-10 flex flex-col pt-4"
+        className="relative z-10 flex flex-col"
         style={{
           width: 390,
           height: 844,
@@ -184,22 +184,24 @@ export default function ProposalInvitation() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center w-full h-full px-6 text-center overflow-hidden">
           {currentScreen === "greeting" && (
-            <div className="space-y-8 animate-fade-in">
-              <div className="space-y-4">
-                <h1 className="text-3xl md:text-4xl font-bold text-pink-400 leading-tight">
-                  Hello Mrs. Nguyễn Hoàng Diệu Thơm,
-                </h1>
-                <p className="text-xl font-bold md:text-2xl text-white">
-                  Is that you?
-                </p>
-              </div>
+            <div className="flex flex-col items-center justify-center h-[90%]">
+              <div className="space-y-8 animate-fade-in">
+                <div className="space-y-4">
+                  <h1 className="text-3xl md:text-4xl font-bold text-pink-400 leading-tight">
+                    Hello Mrs. Nguyễn Hoàng Diệu Thơm,
+                  </h1>
+                  <p className="text-xl font-bold md:text-2xl text-white">
+                    Is that you?
+                  </p>
+                </div>
 
-              <Button
-                onClick={() => setCurrentScreen("invitation")}
-                className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105"
-              >
-                Yes, I'm Thơm
-              </Button>
+                <Button
+                  onClick={() => setCurrentScreen("invitation")}
+                  className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg transform transition-all duration-300 hover:scale-105"
+                >
+                  Yes, I'm Thơm
+                </Button>
+              </div>
             </div>
           )}
 
@@ -291,38 +293,39 @@ export default function ProposalInvitation() {
           )}
 
           {currentScreen === "gallery" && (
-            <div className="space-y-6 animate-slide-up w-full max-w-sm mx-auto">
-              {/* Gallery Header */}
-              <div className="flex items-center justify-between">
-                <Button
-                  onClick={() => setCurrentScreen("invitation")}
-                  variant="ghost"
-                  size="sm"
-                  className="text-pink-300 hover:text-pink-200"
-                >
-                  <ArrowLeft size={20} />
-                </Button>
-                <h3 className="text-xl font-bold text-pink-200">
-                  Our Journey Together
-                </h3>
-                <div className="w-8"></div>
-              </div>
-
-              {/* Image Display */}
-              <div className="relative">
-                <div className="bg-black/50 backdrop-blur-sm border border-pink-300/30 rounded-2xl p-4">
-                  <div
-                    className="relative aspect-[3/4] overflow-hidden rounded-xl"
-                    onTouchStart={handleTouchStart}
-                    onTouchEnd={handleTouchEnd}
+            <div className="flex flex-col items-center justify-center h-[90%]">
+              <div className="space-y-6 animate-slide-up w-full max-w-sm mx-auto">
+                {/* Gallery Header */}
+                <div className="flex items-center justify-between">
+                  <Button
+                    onClick={() => setCurrentScreen("invitation")}
+                    variant="ghost"
+                    size="sm"
+                    className="text-pink-300 hover:text-pink-200"
                   >
-                    <img
-                      src={
-                        galleryImages[currentImageIndex].src ||
-                        "/placeholder.svg"
-                      }
-                      alt={galleryImages[currentImageIndex].caption}
-                      className={`w-full h-full object-cover transition-all duration-500
+                    <ArrowLeft size={20} />
+                  </Button>
+                  <h3 className="text-xl font-bold text-pink-200">
+                    Our Journey Together
+                  </h3>
+                  <div className="w-8"></div>
+                </div>
+
+                {/* Image Display */}
+                <div className="relative">
+                  <div className="bg-black/50 backdrop-blur-sm border border-pink-300/30 rounded-2xl p-4">
+                    <div
+                      className="relative aspect-[3/4] overflow-hidden rounded-xl"
+                      onTouchStart={handleTouchStart}
+                      onTouchEnd={handleTouchEnd}
+                    >
+                      <img
+                        src={
+                          galleryImages[currentImageIndex].src ||
+                          "/placeholder.svg"
+                        }
+                        alt={galleryImages[currentImageIndex].caption}
+                        className={`w-full h-full object-cover transition-all duration-500
                         ${
                           animating && animationDirection === "left"
                             ? "animate-slide-out-left"
@@ -334,15 +337,16 @@ export default function ProposalInvitation() {
                             : ""
                         }
                       `}
-                      onAnimationEnd={handleAnimationEnd}
-                    />
-                    {pendingIndex !== null && (
-                      <img
-                        src={
-                          galleryImages[pendingIndex].src || "/placeholder.svg"
-                        }
-                        alt={galleryImages[pendingIndex].caption}
-                        className={`w-full h-full object-cover transition-all duration-500 absolute top-0 left-0
+                        onAnimationEnd={handleAnimationEnd}
+                      />
+                      {pendingIndex !== null && (
+                        <img
+                          src={
+                            galleryImages[pendingIndex].src ||
+                            "/placeholder.svg"
+                          }
+                          alt={galleryImages[pendingIndex].caption}
+                          className={`w-full h-full object-cover transition-all duration-500 absolute top-0 left-0
                           ${
                             animating && animationDirection === "left"
                               ? "animate-slide-in-right"
@@ -354,62 +358,63 @@ export default function ProposalInvitation() {
                               : ""
                           }
                         `}
-                      />
-                    )}
+                        />
+                      )}
 
-                    {/* Navigation Buttons */}
-                    <Button
-                      onClick={prevImage}
-                      variant="ghost"
-                      size="sm"
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2  bg-white/50 text-white rounded-full p-2"
-                    >
-                      <ChevronLeft size={20} />
-                    </Button>
+                      {/* Navigation Buttons */}
+                      <Button
+                        onClick={prevImage}
+                        variant="ghost"
+                        size="sm"
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2  bg-white/50 text-white rounded-full p-2"
+                      >
+                        <ChevronLeft size={20} />
+                      </Button>
 
-                    <Button
-                      onClick={nextImage}
-                      variant="ghost"
-                      size="sm"
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/50 text-white rounded-full p-2"
-                    >
-                      <ChevronRight size={20} />
-                    </Button>
-                  </div>
+                      <Button
+                        onClick={nextImage}
+                        variant="ghost"
+                        size="sm"
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/50 text-white rounded-full p-2"
+                      >
+                        <ChevronRight size={20} />
+                      </Button>
+                    </div>
 
-                  {/* Image Caption */}
-                  <div className="mt-4 text-center">
-                    <p className="text-pink-200 font-medium">
-                      {galleryImages[currentImageIndex].caption}
-                    </p>
-                  </div>
+                    {/* Image Caption */}
+                    <div className="mt-4 text-center">
+                      <p className="text-pink-200 font-medium">
+                        {galleryImages[currentImageIndex].caption}
+                      </p>
+                    </div>
 
-                  {/* Image Counter */}
-                  <div className="flex justify-center mt-3 space-x-2">
-                    {galleryImages.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleDotClick(index)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          index === currentImageIndex
-                            ? "bg-pink-400"
-                            : "bg-gray-600"
-                        }`}
-                        disabled={animating}
-                      />
-                    ))}
+                    {/* Image Counter */}
+                    <div className="flex justify-center mt-3 space-x-2">
+                      {galleryImages.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleDotClick(index)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            index === currentImageIndex
+                              ? "bg-pink-400"
+                              : "bg-gray-600"
+                          }`}
+                          disabled={animating}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Gallery Footer */}
-              <div className="text-center space-y-2">
-                <p className="text-pink-200 text-sm">
-                  {currentImageIndex + 1} of {galleryImages.length}
-                </p>
-                <p className="text-gray-300 text-xs italic">
-                  Every picture tells our story ��
-                </p>
+                {/* Gallery Footer */}
+                <div className="text-center space-y-2">
+                  <p className="text-pink-200 text-sm">
+                    {currentImageIndex + 1} of {galleryImages.length}
+                  </p>
+                  <p className="text-gray-300 text-xs italic">
+                    Every picture tells our story ��
+                  </p>
+                </div>
               </div>
             </div>
           )}
