@@ -137,7 +137,7 @@ export default function ProposalInvitation() {
 
       {/* iPhone 13 Frame */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center"
+        className="relative z-10 flex flex-col pt-4"
         style={{
           width: 390,
           height: 844,
@@ -182,7 +182,7 @@ export default function ProposalInvitation() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-6 text-center overflow-hidden">
+        <div className="relative z-10 flex flex-col items-center w-full h-full px-6 text-center overflow-hidden">
           {currentScreen === "greeting" && (
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-4">
