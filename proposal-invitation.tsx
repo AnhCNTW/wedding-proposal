@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Heart, ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
+import {
+  Heart,
+  ChevronLeft,
+  ChevronRight,
+  ArrowLeft,
+} from "lucide-react";
 
 export default function ProposalInvitation() {
   const [currentScreen, setCurrentScreen] = useState<
@@ -135,24 +140,21 @@ export default function ProposalInvitation() {
       {/* Background outside phone frame (optional, for aesthetics) */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-pink-900 via-black to-purple-900 opacity-80" />
 
-      {/* iPhone 13 Frame */}
-      <div className="relative z-10 flex flex-col">
-        {/* Animated Stars */}
-        <div className="absolute inset-0">
-          {[...Array(50)].map((_, i) => (
-            <div
-              suppressHydrationWarning
-              key={i}
-              className="absolute w-2 h-2 bg-white rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 2}s`,
-              }}
-            />
-          ))}
-        </div>
+      {/* Animated Stars */}
+      <div className="absolute inset-0">
+        {[...Array(50)].map((_, i) => (
+          <div
+            suppressHydrationWarning
+            key={i}
+            className="absolute w-2 h-2 bg-white rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 2}s`,
+            }}
+          />
+        ))}
 
         {/* Floating Hearts */}
         <div className="absolute inset-0 pointer-events-none">
@@ -197,7 +199,7 @@ export default function ProposalInvitation() {
           )}
 
           {currentScreen === "invitation" && (
-            <div className="space-y-4 animate-slide-up">
+            <div className="space-y-4 animate-slide-up mt-8">
               <div className="space-y-2">
                 <Heart
                   className="mx-auto text-pink-400 animate-pulse"
@@ -248,37 +250,42 @@ export default function ProposalInvitation() {
                     <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
                     <div>
                       <p className="text-pink-200 font-medium">Dress Code</p>
-                      <p className="text-white">Whatever you want</p>
+                      <p className="text-white">
+                        Whatever you want since you are the most beautiful in
+                        the world
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 flex space-x-4 justify-center">
+                    <Heart className="text-red-400 animate-bounce" size={24} />
+                    <Heart
+                      className="text-pink-400 animate-bounce"
+                      size={28}
+                      style={{ animationDelay: "0.2s" }}
+                    />
+                    <Heart
+                      className="text-red-400 animate-bounce"
+                      size={24}
+                      style={{ animationDelay: "0.4s" }}
+                    />
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="space-y-4">
+                      <p className="text-pink-200 text-sm italic">
+                        Can't wait to celebrate with you! 💕
+                      </p>
+
+                      <Button
+                        onClick={() => setCurrentScreen("gallery")}
+                        className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-2 text-sm font-medium rounded-full shadow-lg transform transition-all duration-300 hover:scale-105"
+                      >
+                        View Our Memories 📸
+                      </Button>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="flex space-x-4 justify-center">
-                <Heart className="text-red-400 animate-bounce" size={24} />
-                <Heart
-                  className="text-pink-400 animate-bounce"
-                  size={28}
-                  style={{ animationDelay: "0.2s" }}
-                />
-                <Heart
-                  className="text-red-400 animate-bounce"
-                  size={24}
-                  style={{ animationDelay: "0.4s" }}
-                />
-              </div>
-
-              <div className="space-y-4">
-                <p className="text-pink-200 text-sm italic">
-                  Can't wait to celebrate with you! 💕
-                </p>
-
-                <Button
-                  onClick={() => setCurrentScreen("gallery")}
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-2 text-sm font-medium rounded-full shadow-lg transform transition-all duration-300 hover:scale-105"
-                >
-                  View Our Memories 📸
-                </Button>
               </div>
             </div>
           )}
@@ -296,7 +303,7 @@ export default function ProposalInvitation() {
                   >
                     <ArrowLeft size={20} />
                   </Button>
-                  <h3 className="text-xl font-bold text-pink-200">
+                  <h3 className="text-xl font-bold text-white">
                     Our Journey Together
                   </h3>
                   <div className="w-8"></div>
