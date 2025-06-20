@@ -131,10 +131,7 @@ export default function ProposalInvitation() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-black relative overflow-hidden">
-      {/* Background outside phone frame (optional, for aesthetics) */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-pink-900 via-black to-purple-900 opacity-80" />
-
+    <div className="min-h-screen w-full flex items-center justify-center bg-black relative">
       {/* Animated Stars */}
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
