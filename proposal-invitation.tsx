@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
 
@@ -15,6 +15,18 @@ export default function ProposalInvitation() {
     "left" | "right" | null
   >(null);
   const [pendingIndex, setPendingIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    function setVh() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }
+    setVh();
+    window.addEventListener("resize", setVh);
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  });
 
   // Sample gallery images with romantic captions
   const galleryImages = [
@@ -131,7 +143,7 @@ export default function ProposalInvitation() {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-black relative">
+    <div className="full-height w-full flex items-center justify-center bg-black relative">
       {/* Animated Stars */}
       {[...Array(50)].map((_, i) => (
         <div
@@ -191,17 +203,11 @@ export default function ProposalInvitation() {
 
         {currentScreen === "invitation" && (
           <div className="space-y-4 animate-slide-up mt-8">
-            <div className="space-y-2">
-              <Heart
-                className="mx-auto text-pink-400 animate-pulse"
-                size={60}
-              />
-              <h2 className="text-2xl md:text-3xl font-bold text-pink-200 leading-relaxed">
-                I would like to invite you to the party.
-                <br />
-                Please attend !!
-              </h2>
-            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-pink-200 leading-relaxed">
+              I would like to invite you to the party.
+              <br />
+              Please attend !!
+            </h2>
 
             {/* Party Details */}
             <div className="bg-black/50 backdrop-blur-sm border border-pink-300/30 rounded-2xl p-6 space-y-4 max-w-sm mx-auto">
@@ -413,6 +419,10 @@ export default function ProposalInvitation() {
       </div>
 
       <style jsx>{`
+        .full-height {
+          min-height: calc(var(--vh, 1vh) * 100);
+        }
+
         @keyframes fade-in {
           from {
             opacity: 0;
